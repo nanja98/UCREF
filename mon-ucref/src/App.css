@@ -1,23 +1,69 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 .App-header {
   background-color: #ffffff;
-  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
- /* height: 100vh;*/
+  width: 100%;
+  padding: 5px;
+  gap: 0; 
 }
-img{
- 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
-.App-header .App-logo img{
-  margin-top: 30%; /* Ajoute un espace en haut */
-}
-.App-header .App-descri img{
+.App-descri,
+.App-welcom {
   margin: 0;
   padding: 0;
 }
-.App-header .App-welcom img{
-  margin-top: 0;
+.App-descri img,
+.App-welcom img {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+.App-header .App-logo img {
+  margin-top: 10%; 
+}
+.App-header .App-descri img {
+  margin: 5px 0;
+}
+.App-header .App-welcom img {
   box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* Points de rupture pour la réactivité */
+@media (max-width: 768px) {
+  .App-header {
+    flex-direction: column; /* Reste en colonne petits écrans */
+    padding: 10px;
+  }
+  .App-header .App-logo img {
+    margin-top: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .App-header {
+    padding: 5px;
+  }
+  .App-header .App-logo img {
+    margin-top: 2%;
+  }
+  .App-header .App-descri img,
+  .App-header .App-welcom img {
+    width: 90%; /* Redimensionner */
+  }
 }
