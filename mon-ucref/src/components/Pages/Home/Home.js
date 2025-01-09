@@ -31,11 +31,15 @@ function Home() {
       <div className="Form-conx">
 
         < div className="FormLog">
+
           <div className='App-logo'> 
             <img src={Logo} alt="logo" />
           </div>
-          <h1>Welcome to UCREF <br/>Project DataBase !</h1>
+
+          <h1 className='Welc'>Welcome to UCREF <br/>Project DataBase !</h1>
+
           <p>Enter to get access to data & information.</p>
+
           <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="username">User Name</label>
@@ -47,6 +51,7 @@ function Home() {
               required
             />
           </div>
+
           <div className="form-group">
             <label htmlFor="password">Password</label>
             <input
@@ -57,6 +62,7 @@ function Home() {
               required
             />
           </div>
+
           <div className='Form-quest'>
             <label>
               <input
@@ -66,12 +72,21 @@ function Home() {
               />
               Remenber me
             </label>
-            <Link to="/home">
-              <p>Forgot your password?</p>
-            </Link>
+            <label>   
+              <Link to="/home">
+                Forgot your password?
+              </Link>
+            </label>
             
           </div>
           <ButtonConnexion />
+          <hr/>   
+          <label>  
+            dont have an account ?  
+              <Link to="/create">
+              Create Account
+              </Link>
+            </label>
           
         </form>
         </div>
