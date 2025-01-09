@@ -1,9 +1,32 @@
-import React, { Component } from 'react';
+import React , { useState }from 'react';
 import Logo from '../../../assets/images/LogoMEDD.png';
 import ImgConx from'../../../assets/images/ImgLogin1.png'
 import './Home.css'
-class Home extends Component {
-  render() {
+import ButtonConnexion from '../../Button/ButtonConnexion';
+import { Link } from 'react-router-dom';
+
+
+function Home() {
+
+  const username =""
+  const password= ""
+
+  // checkbox
+  const [isChecked, setIsChecked] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Traitement données 
+    console.log("Username:", username);
+    console.log("Password:", password);
+  };
+
+
+  // gérer le changement d'état
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
     return (
       <div className="Form-conx">
 
@@ -13,6 +36,44 @@ class Home extends Component {
           </div>
           <h1>Welcome to UCREF <br/>Project DataBase !</h1>
           <p>Enter to get access to data & information.</p>
+          <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="username">User Name</label>
+            <input
+              type="text"
+              id="username"
+              placeholder="Entrez votre nom d'utilisateur"
+              value={username}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              placeholder="Entrez votre mot de passe"
+              value={password}
+              required
+            />
+          </div>
+          <div className='Form-quest'>
+            <label>
+              <input
+                type="checkbox"
+                checked={isChecked}
+                onChange={handleCheckboxChange}
+              />
+              Remenber me
+            </label>
+            <Link to="/home">
+              <p>Forgot your password?</p>
+            </Link>
+            
+          </div>
+          <ButtonConnexion />
+          
+        </form>
         </div>
 
         <div className="FormImag">
@@ -23,7 +84,7 @@ class Home extends Component {
 
       </div>
     )
-  }
+  
 }
 
 export default Home;

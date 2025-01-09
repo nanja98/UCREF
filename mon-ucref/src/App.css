@@ -47,7 +47,7 @@ img {
 /* Points de rupture pour la réactivité */
 @media (max-width: 768px) {
   .App-header {
-    flex-direction: column; /* Reste en colonne petits écrans */
+    flex-direction: column; /* Reste petits écrans */
     padding: 10px;
   }
   .App-header .App-logo img {
