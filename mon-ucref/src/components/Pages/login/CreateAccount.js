@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css'
+import './Login.css'
 import Logo from '../../../assets/images/LogoMEDD.png'
 
 
@@ -19,7 +19,6 @@ function CreateAccount() {
 
           <p>Create an account to access data and information.</p>
 
-     
         </div>
 
       </div>
