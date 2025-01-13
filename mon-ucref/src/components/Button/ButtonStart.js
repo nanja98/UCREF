@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function ButtonStart(){
         return (
           <div>
-          <Link to="/home">
+          <Link to="/login">
             <button>START</button>
           </Link>
         </div>

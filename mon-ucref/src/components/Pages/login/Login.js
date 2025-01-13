@@ -32,7 +32,7 @@ function Login() {
       formData.username === fakeUser.username &&
       formData.password === fakeUser.password
     ) {
-      navigate("/create");
+      navigate("/home");
     } else {
       setError("Nom d'utilisateur ou mot de passe incorrect.");
     }
