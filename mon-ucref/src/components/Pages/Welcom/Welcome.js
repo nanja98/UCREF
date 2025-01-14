@@ -3,6 +3,7 @@ import Logo from '../../../assets/images/LogoMEDD.png';
 import Descri from "../../../assets/images/DescriBasLogo.png"
 import Welco from "../../../assets/images/ImgWelcome2.png"
 import ButtonStart from '../../Button/ButtonStart';
+import './Welcome.css'
 
 
 function Welcome() {

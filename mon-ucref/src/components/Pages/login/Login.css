@@ -53,26 +53,66 @@
 
 .form-group {
   margin-bottom: 20px;
-  text-align: left;
+
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 0.9rem;
-  color: #000000;
-  font-weight: bold;
+.input-wrapper {
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
+.input-wrapper input:focus {
+  border-color: #fcfcfc;
+}
+
+.input-wrapper input::placeholder {
+  color: #aaa;
+}
+
+.remember-forgot {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  margin-top: 10px; 
+}
+
+.remember-forgot label {
+  font-size: 14px; 
+  color: #333; 
+ 
+}
+
+.remember-forgot a {
+  text-decoration: none; 
+  font-size: 14px; 
+  color: #007BFF; 
+  transition: color 0.3s;
+}
+.Accnt{
+  font-size: 14px; 
+  color: #333; 
+}
+.Accnt .Register{
+  text-decoration: none; 
+  font-size: 14px; 
+  color: #007BFF; 
+  transition: color 0.3s;
 }
 .form-group input {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
-  border: 1px solid #cccccc;
+  border: 1px solid ;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
+.form-group .icone{
+  position: absolute;
+  right: 20px;
+}
 .Form-quest{
   display: flex;
   flex-direction: row;
@@ -84,8 +124,8 @@ hr{
   margin-top: 20px;
 }
 
-button{
-  width: 100%;
+.ButtonLogin{
+  width: 50%;
   padding: 10px 15px;
   background-color: #941A35;
   color: #ffffff;
@@ -94,6 +134,7 @@ button{
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-top: 20px;
 }
 
 error{
@@ -114,7 +155,9 @@ error{
       width: 100%; 
       padding: 10px;
   }
-
+.Img-conx img{
+  display: none;
+}
   .App-logo img {
       width: 80%;
   }
@@ -143,6 +186,6 @@ error{
   }
 
   .FormImag img {
-      width: 50%; 
+      display: none; 
   }
 }

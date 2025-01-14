@@ -2,7 +2,9 @@ import React , { useState }from 'react';
 import Logo from '../../../assets/images/LogoMEDD.png';
 import ImgConx from'../../../assets/images/ImgLogin1.png'
 import './Login.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { FaUserAlt } from "react-icons/fa";
+import { RiLockPasswordFill } from "react-icons/ri";
 
 
 function Login() {
@@ -24,7 +26,7 @@ function Login() {
 
     // Exemple utilisateur 
     const fakeUser = {
-      username: "test@gmail.com",
+      username: "test",
       password: "1234",
     };
 
@@ -52,34 +54,48 @@ function Login() {
           <p>Enter to get access to data & information.</p>
 
           <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Nom d'utilisateur :</label>
-          <input
-            type="text"
-            id="username"
-            name="username"
-            value={formData.username}
-            onChange={handleChange}
-            required
+          <div className='Form-wrapper'>
+            <div className="form-group">
+            <div className="input-wrapper">
+              <FaUserAlt className='icone'/>
+              <input
+                type="text"
+                placeholder='User name'
+                id="username"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                required
+              />
+            </div>
+            </div>
+            <div className="form-group">
+            <div className="input-wrapper">
+            <RiLockPasswordFill className='icone'/>
+              <input
+                type="password"
+                placeholder='Password'
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
+              />
+              </div>
+            </div>
+            <div className='remember-forgot'>
+              <label><input type="checkbox"/>Remeber me</label>
+              <Link>Forgot Password</Link>
+            </div>
+            {error && <p className='error'>{error}</p>}
+            <button className='ButtonLogin' type="submit">Connect</button>
+            
+            <div className='Accnt'>
+              <p>Don't have an account ? <Link className='Register'>Register</Link></p>
+            </div>
+            </div>
+          </form>
           
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Mot de passe :</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-           
-          />
-        </div>
-        {error && <p className='error'>{error}</p>}
-        <button type="submit">Se connecter</button>
-        
-      </form>
         </div>
 
         <div className="FormImag">
