@@ -1,8 +1,8 @@
 import './App.css';
-import Welcome from './components/Pages/Welcom/Welcome.js';
+import Welcome from './components/Pages/Welcom/Welcome.jsx';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './components/Pages/login/Login.js';
-import Home from './components/Pages/Home/Home.js'
+import Login from './components/Pages/login/Login.jsx';
+import Home from './components/Pages/Home/Home.jsx'
 
 function App() {
   return (
