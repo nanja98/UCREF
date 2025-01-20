@@ -13,8 +13,6 @@ function Welcome() {
           </div>
           <div className="menu-right">
           <ul>
-              <li><a href="/login">Home</a></li>
-              <li><a href="#about">About</a></li>
               <li><a href="#about">Contact</a></li>
 
           </ul>

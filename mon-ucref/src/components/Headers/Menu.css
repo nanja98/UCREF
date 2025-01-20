@@ -9,12 +9,12 @@
     --body-color:#fafafa;
     --sidebar-color:#2e96af;
     --primary-color:#2e96af;
-    --primary-color-light:green;
+    --primary-color-light:rgb(10, 10, 10);
     --toggle-color::pink;
-    --text-color:rgb(41, 39, 39);
+    --text-color:rgb(0, 0, 0);
 
     /*transition*/
-    --trans-03: all 0.2s ease;
+    --trans-02: all 0.2s ease;
     --trans-03: all 0.3s ease;
     --trans-04: all 0.4s ease;
     --trans-05: all 0.5s ease;
@@ -52,6 +52,7 @@ body{
     width: 50px;
     border-radius: 6px;
 }
+
 .sidebar .image-text{
     display: flex;
     align-items: center;
@@ -85,21 +86,40 @@ header .image-text .text-name{
 
 }
 .sidebar li{
-    height: 40px;
+    height: 30px;
     display: flex;
     list-style: none;
     align-items: center;  
-    
+    margin-top: 10px;
 }
-
-.sidebar li a{
-    text-decoration: none;
-    color:white;
-    height: 100%;
-    display: flex;
-}
-
-.sidebar .icone{
+.sidebar li .icone{
     font-size: 20px;
     min-width: 60px;
+}
+.sidebar li a{
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color:white;
+    display: flex;
+    border-radius:6px;
+    transition: var(--trans-04 );
+
+}
+.sidebar li a:hover{
+   background: #1b5b6b;
+
+}
+.sidebar li .icone,
+.sidebar li .text{
+    color: var(--body-color);
+    transition: var(--trans-02);
+}
+.sidebar li a:hover .icone,
+.sidebar li a:hover .text{
+    color: var(--primary-color-light);
+}
+.tiré{
+    margin-top: 100px;
+    margin-bottom: 30px;
 }
