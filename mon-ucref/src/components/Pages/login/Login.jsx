@@ -1,19 +1,164 @@
-import React , { useState }from 'react';
-import Logo from '../../../assets/images/LogoMEDD.png';
-import ImgConx from'../../../assets/images/ImgLogin1.png'
-import './Login.css'
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState } from "react";
+import styled from "styled-components";
+import Logo from "../../../assets/images/LogoMEDD.png";
+import ImgConx from "../../../assets/images/ImgLogin1.png";
+import { useNavigate, Link } from "react-router-dom";
 import { FaUserAlt } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 
 
+const FormContainer = styled.div`
+  background-color: #2e96af;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
+
+const FormWrapper = styled.div`
+  background: linear-gradient(to right, #ffffff, #4aa0b0);
+  border: 2px solid #3c6881;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(22, 52, 92, 0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+const FormSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  padding: 13px;
+`;
+
+const LogoContainer = styled.div`
+  margin-bottom: 20px;
+`;
+
+const StyledLogo = styled.img`
+  max-width: 100%;
+  height: auto;
+`;
+
+const Heading = styled.h1`
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+`;
+
+const FormGroup = styled.div`
+  margin-bottom: 20px;
+`;
+
+const InputWrapper = styled.div`
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
+
+const StyledInput = styled.input`
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+  &:focus {
+    border-color: #fcfcfc;
+  }
+
+  &::placeholder {
+    color: #aaa;
+  }
+`;
+
+const Icon = styled.div`
+  position: absolute;
+  right: 20px;
+`;
+
+const RememberForgot = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+
+  label {
+    font-size: 14px;
+    color: #333;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #007bff;
+    transition: color 0.3s;
+  }
+`;
+
+const Button = styled.button`
+  width: 50%;
+  padding: 10px 15px;
+  background-color: #941a35;
+  color: #ffffff;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+
+  &:hover {
+    background-color: #700e26;
+  }
+`;
+
+const ErrorMessage = styled.p`
+  color: red;
+  font-size: 0.9em;
+  margin-bottom: 15px;
+`;
+
+const ImageSection = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1px;
+  padding: 20px;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      display: none;
+    }
+  }
+`;
+
 function Login() {
-  // Données du formulaire
+
   const [formData, setFormData] = useState({ username: "", password: "" });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+ 
 
-  // champs de formulaire
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -22,7 +167,6 @@ function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Exemple utilisateur 
     const fakeUser = {
       username: "test",
       password: "1234",
@@ -38,66 +182,65 @@ function Login() {
     }
   };
 
-    return (
-      <div className="Form-conx">
-        < div className="Forme">
-          <div className="FormLog">
-            <div className='App-logo'> 
-              <img src={Logo} alt="logo" />
-            </div>
-            <h1 className='Welc'>Welcome to UCREF <br/>Project DataBase !</h1>
+  return (
+    <FormContainer>
+        <FormWrapper>
+          <FormSection>
+            <LogoContainer>
+              <StyledLogo src={Logo} alt="logo" />
+            </LogoContainer>
+            <Heading>Welcome to UCREF <br /> Project DataBase!</Heading>
             <p>Enter to get access to data & information.</p>
             <form onSubmit={handleSubmit}>
-            <div className='Form-wrapper'>
-              <div className="form-group">
-              <div className="input-wrapper">
-                <FaUserAlt className='icone'/>
-                <input
-                  type="text"
-                  placeholder='User name'
-                  id="username"
-                  name="username"
-                  value={formData.username}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              </div>
-              <div className="form-group">
-              <div className="input-wrapper">
-              <RiLockPasswordFill className='icone'/>
-                <input
-                  type="password"
-                  placeholder='Password'
-                  id="password"
-                  name="password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  required
-                />
-                </div>
-              </div>
-              <div className='remember-forgot'>
-                <label><input type="checkbox"/>Remeber me</label>
-                <Link>Forgot Password</Link>
-              </div>
-              {error && <p className='error'>{error}</p>}
-              <button className='ButtonLogin' type="submit">Connect</button>
-              
-              <div className='Accnt'>
-                <p>Don't have an account ? <Link className='Register'>Register</Link></p>
-              </div>
-              </div>
+              <FormGroup>
+                <InputWrapper>
+                  <Icon>
+                    <FaUserAlt />
+                  </Icon>
+                  <StyledInput
+                    type="text"
+                    placeholder="User name"
+                    id="username"
+                    name="username"
+                    value={formData.username}
+                    onChange={handleChange}
+                    required
+                  />
+                </InputWrapper>
+              </FormGroup>
+              <FormGroup>
+                <InputWrapper>
+                  <Icon>
+                    <RiLockPasswordFill />
+                  </Icon>
+                  <StyledInput
+                    type="password"
+                    placeholder="Password"
+                    id="password"
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    required
+                  />
+                </InputWrapper>
+              </FormGroup>
+              <RememberForgot>
+                <label>
+                  <input type="checkbox" />
+                  Remember me
+                </label>
+                <Link to="/forgot-password">Forgot Password</Link>
+              </RememberForgot>
+              {error && <ErrorMessage>{error}</ErrorMessage>}
+              <Button type="submit">Connect</Button>
             </form>
-            </div>
-            <div className="FormImag">
-            <div className='Img-conx'> 
-              <img src={ImgConx} alt="ImgConx" />
-            </div>
-            </div>
-        </div>
-      </div>
-    )
-  
+          </FormSection>
+          <ImageSection>
+            <img src={ImgConx} alt="Login illustration" />
+          </ImageSection>
+        </FormWrapper>
+    </FormContainer>
+  );
 }
+
 export default Login;
