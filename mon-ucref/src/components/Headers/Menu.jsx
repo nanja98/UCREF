@@ -1,8 +1,8 @@
-import React from 'react';
+import React ,{ useState } from 'react';
 import Logo from '../../../src/assets/images/LogoMEDD.png';
 //import { useNavigate } from "react-router-dom";
 import './Menu.css'
-import { AiOutlineCaretRight } from "react-icons/ai";
+import { AiOutlineCaretLeft } from "react-icons/ai";
 import { TbHome } from "react-icons/tb";
 import { MdEvent } from "react-icons/md";
 import { GoPeople } from "react-icons/go";
@@ -14,6 +14,11 @@ import { BsPersonFill } from "react-icons/bs";
 
 
 const Menu = () => {
+   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
  /*const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -22,7 +27,7 @@ const Menu = () => {
 
   return (
     <div>
-      <nav className='sidebar'>
+      <nav className={`sidebar ${isSidebarOpen ? '' : 'close'}`}>
         <header>
           <div className='image-text'>
             <div className='image'>
@@ -33,9 +38,10 @@ const Menu = () => {
               <div className='names'> UCREF PROJECT DATABASE</div>
             </div>
           </div>
-          <AiOutlineCaretRight className='line-right' />
+          <AiOutlineCaretLeft className='line-right'  onClick={toggleSidebar}  />
         </header>
         <div className='menu'>
+        <div className='menu-haut'>
             <ul className='menu-links'>  
                <li className='nav-link'>
                 <a href='/'>
@@ -74,32 +80,32 @@ const Menu = () => {
                 </a>
               </li>
             </ul >
-        </div>
-         <hr className='tiré'/>
-        <div className='bottom-content'>
-        <span className='texte navbas-text'>Other</span>
+            </div>
+            <div className='bottom-content'>
+            <hr />
+          <span className='texte navbas-text'>Other</span>
             <ul className='menu-links'>  
                <li className='nav-link'>
                 <a href='/'>
-                  <BiLogOut className='icone' />
+                  <BsPersonFill className='icone' />
                   <span className='text nav-text'>SCVR </span>
                 </a>
               </li>
               <li className='nav-link'>
                 <a href='/'>
-                  <MdEvent className='icone'/>
+                  <BsPersonFill className='icone'/>
                   <span className='text nav-text'>SEF</span>
                 </a>
               </li>
               <li className='nav-link'>
                 <a href='/'>
-                <GoPeople className='icone' />
+                <BsPersonFill className='icone' />
                   <span className='text nav-text'>Sécrétariat</span>
                 </a>
               </li>
                <li className='nav-link'>
                 <a href='/'>
-                <GoPeople className='icone' />
+                <BsPersonFill className='icone' />
                   <span className='text nav-text'>Stagiaire</span>
                 </a>
               </li>
@@ -111,6 +117,9 @@ const Menu = () => {
               </li>
             </ul>
         </div>
+        </div>
+
+       
       </nav>
     </div>
   );

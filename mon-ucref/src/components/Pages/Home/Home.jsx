@@ -1,5 +1,6 @@
 import React from 'react';
 import Menu from '../../Headers/Menu'
+import MenuHorizontale from '../../Headers/MenuHorizontale'
 
 
 const Home = () => {
@@ -11,7 +12,8 @@ const Home = () => {
 
   return (
     <div>
-      <Menu />
+        <Menu />
+        <MenuHorizontale />
     </div>
   );
 };
