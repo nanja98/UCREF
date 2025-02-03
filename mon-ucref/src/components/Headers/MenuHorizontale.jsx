@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { useState }  from 'react';
 import styled from 'styled-components';
 import './MenuHorizontale.css';
 import { MdOutlineNotifications } from "react-icons/md";
 import { RiSearch2Line } from "react-icons/ri";
-
 
 const Navbar = styled.nav`
   padding: 10px 20px;
@@ -34,16 +33,27 @@ const NavItem = styled.li`
 
 
 function HorizontalMenu() {
+const [searchTerm, setSearchTerm] = useState("");
 
+const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+};
 
   return (
     <Navbar>
       <NavList>
-        <NavItem>
+        <NavItem  className="search-container">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearch}
+            className="search-input"
+          />
           <RiSearch2Line />
         </NavItem>
         <NavItem>
-          <MdOutlineNotifications />
+          <MdOutlineNotifications className="notification" />
         </NavItem>
         
       </NavList>

@@ -1,8 +1,17 @@
-a {
-    border-bottom: 2px solid transparent;
-  }
-  
-  a:hover, a.active {
-    border-bottom: 2px solid #4caf50;
-  }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 6px;
+    border: 2px solid #ddd;
+}
+
+.search-input {
+  width: 100%;
+  padding: 7px;
+  border:none;
+}
+.notification{
+  margin-top:6px;
+}

@@ -16,6 +16,8 @@ const FormContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  min-height: 700px; 
+  transition: all 0.3s ease-in-out;
 `;
 
 const FormWrapper = styled.div`
@@ -28,6 +30,16 @@ const FormWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  min-width: 60vw;  
+  min-height: 70vh;
+  max-width: 900px; 
+  transition: all 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const FormSection = styled.div`
@@ -37,25 +49,44 @@ const FormSection = styled.div`
   flex: 1;
   text-align: center;
   padding: 13px;
+  flex-shrink: 0;
+  
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const LogoContainer = styled.div`
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 const StyledLogo = styled.img`
   max-width: 100%;
   height: auto;
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 const Heading = styled.h1`
   margin: 0;
   margin-top: 20px;
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 const FormGroup = styled.div`
   margin-bottom: 20px;
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 const InputWrapper = styled.div`
@@ -64,6 +95,9 @@ const InputWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 const StyledInput = styled.input`
@@ -80,6 +114,10 @@ const StyledInput = styled.input`
 
   &::placeholder {
     color: #aaa;
+  }
+
+  @media (max-width: 768px) {
+    align-items: center;
   }
 `;
 
@@ -122,12 +160,18 @@ const Button = styled.button`
   &:hover {
     background-color: #700e26;
   }
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 const ErrorMessage = styled.p`
   color: red;
   font-size: 0.9em;
   margin-bottom: 15px;
+  @media (max-width: 768px) {
+    align-items: center;
+  }
 `;
 
 const ImageSection = styled.div`
@@ -136,7 +180,7 @@ const ImageSection = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1px;
+  flex-shrink: 0;
   padding: 20px;
 
   img {
@@ -151,7 +195,6 @@ const ImageSection = styled.div`
     }
   }
 `;
-
 function Login() {
 
   const [formData, setFormData] = useState({ username: "", password: "" });
