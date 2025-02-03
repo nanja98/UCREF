@@ -10,7 +10,6 @@
     --sidebar-color:#2e96af;
     --primary-color:#2e96af;
     --primary-color-light:rgb(10, 10, 10);
-    --toggle-color::pink;
     --text-color:rgb(0, 0, 0);
 
     /*transition*/
@@ -110,10 +109,6 @@ header .image-text .text-name{
     align-items: center;
     margin-top: 10px;
 }
-.sidebar li .icone{
-    font-size: 20px;
-    min-width: 60px;
-}
 .sidebar li a{
     height: 100%;
     width: 100%;
@@ -122,15 +117,32 @@ header .image-text .text-name{
     display: flex;
     border-radius: 6px;
     transition: var(--trans-02);
+    background-color: transparent; 
+    justify-content: center;
+    align-items: center;
+   
 }
-.sidebar li a:hover{
-   background: #1b5b6b;
+.sidebar li a:hover {
+    background-color: #1b5b6b; 
+    color: var(--primary-color-light); 
+    border-color: #1b5b6b; 
+    transform: translateY(-2px);
+}
 
-}
 .sidebar li .icone,
 .sidebar li .text{
     color: var(--body-color);
     transition: var(--trans-02);
+}
+.sidebar li a .text {
+    flex-grow: 1; 
+    text-align: left;
+}
+
+.sidebar li .icone {
+    font-size: 20px;
+    margin-right: 10px; 
+    color: white;
 }
 .sidebar li a:hover .icone,
 .sidebar li a:hover .text{
@@ -140,6 +152,7 @@ header .image-text .text-name{
     display: flex;
     flex-direction: column;
     flex-grow: 1; 
+   
 }
 
 .menu-haut {

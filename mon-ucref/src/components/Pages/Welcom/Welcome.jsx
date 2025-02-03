@@ -1,13 +1,22 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { motion } from 'framer-motion';
 import Logo from '../../../assets/images/LogoMEDD.png';
 import ButtonStart from '../../Button/ButtonStart';
-import backgroundImage from '../../../assets/images/backGround.png';
+import DesciImage from '../../../assets/images/DescriBasLogo.png';
+import ImgWelc from '../../../assets/images/ImgWelcome2.png';
+
+// Animation du dégradé
+const gradientAnimation = keyframes`
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+`;
 
 const AppContainer = styled.div`
-  background-image: url(${backgroundImage});
-  background-size: cover;
-  background-position: center;
+  background: linear-gradient(-45deg, rgb(211, 211, 211), #2e96af, #0f4c75);
+  background-size: 400% 400%;
+  animation: ${gradientAnimation} 10s ease infinite;
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -19,145 +28,43 @@ const DashboardContainer = styled.div`
   height: 100vh;
 `;
 
-const MenuHorizontal = styled.nav`
-  padding: 10px 20px;
-  color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const MenuLeft = styled.div`
+const ImagCentre = styled(motion.div)`
   display: flex;
   align-items: center;
-`;
-
-const MenuRight = styled.div`
-  ul {
-    list-style: none;
-    display: flex;
-    
-
-    li {
-      margin: 0 15px;
-
-      a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-        transition: color 0.3s ease, transform 0.3s ease;
-
-        &:hover {
-          color: #2e96af;
-          transform: scale(1.1);
-        }
-      }
-    }
-  }
-`;
-
-const TextMenu = styled.div`
-  display: flex;
+  justify-content: center;
   flex-direction: column;
-  align-items: flex-start;
-  margin-top: 9%;
-  height: 100vh;
-  margin-left: 10%;
-
-  .text-titre {
-    font-size: 6rem;
-    font-weight: bold;
-    color: #2e96af;
-    animation: fadeIn 2s ease-in-out;
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  }
-
-  .text {
-    font-size: 1.8rem;
-    color: #000000;
-  }
+  height: 100%;
 `;
 
-const StyledButtonStart = styled(ButtonStart)`
-  display: flex;
-`;
+// Animation d'apparition
+const fadeIn = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+};
 
 // Responsive
 const ResponsiveContainer = styled(AppContainer)`
   @media (max-width: 768px) {
-    background: white;
+    background: #2e96af;
+  }
+`;
+// Style pour les images responsives
+const StyledImage = styled(motion.img)`
+  height: auto;
+  margin: 10px 0;
 
-    ${MenuHorizontal} {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    ${MenuRight} ul {
-      flex-direction: column;
-      width: 100%;
-    }
-
-    ${TextMenu} {
-      align-items: center;
-      margin: 5% auto;
-      margin-left: 5%;
-      justify-content: center;
-
-      .text-titre {
-        font-size: 3rem;
-      }
-
-      .text {
-        font-size: 1.2rem;
-      }
-    }
-
-    ${StyledButtonStart} {
-      justify-content: center;
-    }
+  @media (max-width: 1024px) {
+    width: 90%;
   }
 
-  @media (min-width: 769px) and (max-width: 1024px) {
-    ${MenuHorizontal} {
-      padding: 15px 30px;
-    }
-
-    ${MenuRight} ul {
-      flex-direction: row;
-      justify-content: center;
-    }
-
-    ${TextMenu} {
-      margin-left: 7%;
-
-      .text-titre {
-        font-size: 5rem;
-      }
-
-      .text {
-        font-size: 1.5rem;
-      }
-    }
+  @media (max-width: 768px) {
+    width: 100%;
+    max-width: 250px;
   }
 
-  @media (min-width: 1025px) {
-    ${MenuHorizontal} {
-      padding: 20px 50px;
-    }
-
-    ${MenuRight} li {
-      margin: 0 20px;
-    }
+  @media (max-width: 480px) {
+    width: 100%;
+    max-width: 200px;
   }
 `;
 
@@ -165,21 +72,12 @@ function Welcome() {
   return (
     <ResponsiveContainer>
       <DashboardContainer>
-        <MenuHorizontal>
-          <MenuLeft>
-            <img src={Logo} alt="logo" />
-          </MenuLeft>
-          <MenuRight>
-            <ul>
-              <li><a href="#about">Contact</a></li>
-            </ul>
-          </MenuRight>
-        </MenuHorizontal>
-        <TextMenu>
-          <span className="text-titre">UP-DB</span>
-          <span className="text">UCREF Project Database</span>
-          <StyledButtonStart />
-        </TextMenu>
+        <ImagCentre initial="hidden" animate="visible" variants={fadeIn}>
+          <img src={Logo} alt="logo" />
+          <img src={DesciImage} alt="description" />
+          <StyledImage src={ImgWelc} alt="Image_Welcome" whileHover={{ scale: 1.05 }} />
+            <ButtonStart />
+        </ImagCentre>
       </DashboardContainer>
     </ResponsiveContainer>
   );
